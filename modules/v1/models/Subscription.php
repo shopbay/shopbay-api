@@ -26,7 +26,7 @@ class Subscription extends \Subscription
     {
         //Api output fields
         $this->fields = [
-            'id','shop_id',
+            'id','shop_id','account_id',
             'package'=>['type'=>'parent','referenceAttribute'=>'name','class'=>'app\modules\v1\models\Package'],
             'plan'=>['type'=>'parent','class'=>'app\modules\v1\models\Plan'],
             'start_date','end_date',

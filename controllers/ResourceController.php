@@ -229,7 +229,7 @@ abstract class ResourceController extends Controller
                 if ($this->checkPermission($this->permissions()[$action]))
                     $pass = true;
                 else
-                    throw new UnauthorizedHttpException(Sii::t('sii','Forbidden access to action {action}.',['{action}'=>$action]));
+                    throw new UnauthorizedHttpException(Sii::t('sii','No Permission to access action {action}.',['{action}'=>$action]));
             }
             //second check if user has subscribed to the service
             if ($key==$action && isset($this->subscriptions()[$action])){
@@ -444,6 +444,7 @@ abstract class ResourceController extends Controller
      */
     protected function checkPermission($permission) 
     {
+        logTrace(__METHOD__.' Check '.$permission.' for user '.$this->serviceUser.' ...');
         if (Yii::app()->getAuthManager()->checkAccess($permission,$this->serviceUser)){
             logInfo(__METHOD__.' Check '.$permission.' for user '.$this->serviceUser.' ok');
             return true;

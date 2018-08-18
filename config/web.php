@@ -120,12 +120,15 @@ $config = [
                         'POST submit/{id}' => 'submit',
                         'POST approve/{id}' => 'approve',
                         'POST subscribe/{id}' => 'subscribe',
+                        'POST subscribe/{id}/{subscriber}' => 'subscribe',
                         'DELETE unsubscribe/{id}' => 'unsubscribe',
+                        'DELETE unsubscribe/{id}/{subscriber}' => 'unsubscribe',
                         'POST check/{subscription}' => 'check',
                     ],
                     'tokens' => [
                         '{id}' => '<id:\\w+>',
                         '{subscription}' => '<subscription:\\w+>',
+                        '{subscriber}' => '<subscriber:\\w+>',
                     ],
                 ],
                 [
